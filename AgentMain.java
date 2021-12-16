@@ -11,9 +11,17 @@ public class AgentMain {
 	
 	public static void main(String[] args) throws Exception{
 		int choice;
-//		String values = sc.nextLine();
-//		Gender gen = Gender.valueOf(values);
-//		System.out.println(gen);
+		String gen ;
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("Enter the gender Here ");
+		gen = sc1.next();
+		Gender gender;
+		if(gen.toUpperCase().equals("MALE")) {
+			gender = Gender.MALE;
+		}
+		else if(gen.toLowerCase().equals("FEMALE")) {
+			gender = Gender.FEMALE;
+		}
 		do {
 			System.out.println(" CHOOOSE ANY ONE OF THEM TO PERFORM YOUR OPERATIONS ");
 			System.out.println("  -------------");
@@ -59,7 +67,7 @@ public class AgentMain {
 		int agentid;
 		System.out.println("Enter AgentId No    ");
 		agentid=sc.nextInt();
-		String result = bal.deleteStudentBal(agentid);
+		String result = bal.deleteAgentBal(agentid);
 		System.out.println(result);
 	}
 	
@@ -83,6 +91,10 @@ public class AgentMain {
 		agent.setName(sc.next());
 		System.out.println("Enter City Here   ");
 		agent.setCity(sc.nextLine());
+		System.out.println("Enter Paymode here ");
+		agent.setPaymode(sc.nextInt());
+		System.out.println("Enter the Premium Here ");
+		agent.setPreminum(sc.nextDouble());
 		
 		System.out.println(bal.updateAgentBal(agent));
 		
@@ -94,8 +106,21 @@ public class AgentMain {
 		agent.setAgentId(sc.nextInt());
 		System.out.println("Enter Agent Name   ");
 		agent.setName(sc.next());
-		System.out.println("Enter the Gender Here ");
+//		System.out.println("Enter the Gender Here ");
 //		agent.setGender(sc.next());
+		String gen ;
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("Enter the gender Here ");
+		gen = sc1.next();
+//		Gender gender;
+		if(gen.toUpperCase().equals("MALE")) {
+			agent.setGender(Gender.MALE);
+//			gender = Gender.MALE;
+		}
+		else if(gen.toLowerCase().equals("FEMALE")) {
+			agent.setGender(Gender.FEMALE);
+//			gender = Gender.FEMALE;
+		}
 		System.out.println("Enter City   ");
 		agent.setCity(sc.next());
 		System.out.println("Enter the PayMode Here ");

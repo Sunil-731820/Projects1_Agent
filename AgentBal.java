@@ -4,7 +4,7 @@ import java.util.List;
 public class AgentBal {
 
 	static StringBuilder sb = new StringBuilder();
-	public boolean validateStudent(Agent agent) {
+	public boolean validateAgent(Agent agent) {
 		boolean isValid = true;
 		
 		if (agent.getAgentId() <= 0) {
@@ -17,15 +17,15 @@ public class AgentBal {
 			sb.append("Name Should Contains Minimum of  five characters...\n");
 		}
 		
-		if (agent.getCity().length() >=0) {
-			isValid=false;
-			sb.append("City can be zero  characters...\n");
-		}
+//		if (agent.getCity().length() >=0) {
+//			isValid=false;
+//			sb.append("City can be zero  characters...\n");
+//		}
 		
 		return isValid;
 	}
 	
-	public String deleteStudentBal(int agentid) {
+	public String deleteAgentBal(int agentid) {
 		return new AgentDao().deleteAgentDao(agentid);
 	}
 	
@@ -38,7 +38,7 @@ public class AgentBal {
 	
 	public String updateAgentBal(Agent agent) throws AgentException {
 		AgentDao dao = new AgentDao();
-		if (validateStudent(agent)==true) {
+		if (validateAgent(agent)==true) {
 			return dao.udpateAgentDao(agent);
 		} else {
 			throw new AgentException(sb.toString());
@@ -47,7 +47,7 @@ public class AgentBal {
 	
 	public String addAgentBal(Agent agent) throws AgentException {
 		AgentDao dao = new AgentDao();
-		if (validateStudent(agent)==true) {
+		if (validateAgent(agent)==true) {
 			return dao.addAgentDao(agent);
 		} else {
 			throw new AgentException(sb.toString());

@@ -19,9 +19,11 @@ public class AgentDao {
 			agentFound.setCity(agent.getCity());
 			agentFound.setPaymode(agent.getPaymode());
 			agentFound.setPreminum(agent.getPreminum());
-			return "Agents  Record are  Updated Successfully ";
+			return "Agents  Record are  Updated ";
 		}
-		return "No  Record Not Found...";
+		else{
+			return "No Records are found";
+		}
 	}
 	
 	public String deleteAgentDao(int agentid) {
